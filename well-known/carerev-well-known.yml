@@ -1,0 +1,62 @@
+generated: '2026-08-02'
+method: probed
+source: live GET probes of /.well-known/* on every CareRev host
+summary:
+  documents_found: 0
+  note: CareRev publishes no /.well-known/ discovery surface on any host. No security.txt
+    (RFC 9116), no OpenID Connect or OAuth authorization-server metadata, no api-catalog
+    (RFC 9727), no ai-plugin.json and no A2A agent card. Recorded as a negative probe
+    result — absence is valid data, and no WellKnown or SecurityTxt pointer is wired
+    because nothing is present.
+hosts:
+- host: https://www.carerev.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://api.carerev.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://facilities.carerev.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://app.carerev.com
+  note: 'Excluded from findings. This host is a single-page application whose catch-all
+    route answers HTTP 200 with an HTML shell (Content-Type text/html, body begins
+    ''<!DOCTYPE html>'') for EVERY path probed, including /.well-known/agent-card.json,
+    /openapi.json and /llms.txt. All 200s from this host are false positives and were
+    rejected on body inspection.'
+  documents:
+  - {path: /.well-known/agent-card.json, status: 200, rejected: true, reason: html-spa-shell}
+  - {path: /.well-known/agent.json, status: 200, rejected: true, reason: html-spa-shell}
+  - {path: /.well-known/security.txt, status: 200, rejected: true, reason: html-spa-shell}
+  - {path: /openapi.json, status: 200, rejected: true, reason: html-spa-shell}
+  - {path: /llms.txt, status: 200, rejected: true, reason: html-spa-shell}
+contract_discovery:
+  openapi: none
+  swagger: none
+  graphql: none
+  asyncapi: none
+  mcp: none
+  agent_card: none
+  paths_probed: [/openapi.json, /openapi.yaml, /swagger.json, /swagger.yaml, /v1/openapi.json,
+    /api/openapi.json, /api/v1/openapi.json, /api-docs, /docs, /redoc, /rapidoc, /graphql]
+  hosts_probed: [carerev.com, www.carerev.com, api.carerev.com, app.carerev.com, facilities.carerev.com,
+    docs.carerev.com, developer.carerev.com, developers.carerev.com]
+  unresolvable_hosts: [docs.carerev.com, developer.carerev.com, developers.carerev.com]
+  conclusion: CareRev publishes no machine-readable API contract of any kind. api.carerev.com
+    is a real, live API gateway but every documented-spec path returns 404 and the
+    surface is auth-gated with no public documentation.

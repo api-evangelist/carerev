@@ -1,7 +1,22 @@
 aid: carerev
 name: CareRev
-description: 'CareRev is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'CareRev is a healthcare workforce management and on-demand labor marketplace
+  that connects hospitals and health systems directly with local, credentialed clinical
+  professionals — registered nurses, LPN/LVNs, CNAs, surgical and ER techs, medical
+  assistants, respiratory therapists, phlebotomists and mental health techs — without
+  a traditional staffing agency in the middle. Facilities post open shifts from their
+  existing scheduling and HR systems and vetted clinicians browse, claim and self-schedule
+  them in the CareRev mobile app, while CareRev handles credential verification, compliance
+  and payment. The product line spans the CareRev Marketplace (external on-demand talent),
+  IRP+ (internal resource pool control and float-pool visibility for a health system''s
+  own staff) and Smart Rates (dynamic rate modeling to control labor spend). CareRev
+  is certified by The Joint Commission under its Health Care Staffing Services program
+  and serves more than 650 facilities across the United States. Integration with a
+  facility''s VMS, scheduling and workforce-management stack (including UKG Dimensions
+  via the UKG Connect Technology Partner Program) is delivered through private, partner-scoped
+  API connections; CareRev publishes no public developer portal, API documentation
+  or machine-readable API contract as of this profiling pass.'
+image: https://cdn.prod.website-files.com/5babc11099f97ef511cf24a6/62320df8e01070ecfbd91b6a_CR-logo-full-color_RGB.svg
 url: https://raw.githubusercontent.com/api-evangelist/carerev/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,7 +27,49 @@ created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
-apis: []
+- Healthcare
+- Health Systems
+- Workforce Management
+- Staffing
+- Nursing
+- Marketplace
+- Scheduling
+- Human Resources
+- Labor Marketplace
+apis:
+- aid: carerev:platform
+  name: CareRev Platform API
+  description: 'The private application and partner-integration API behind the CareRev
+    platform. api.carerev.com is a live, TLS-terminated API gateway (Istio/Envoy fronting
+    a Ruby application) that serves the CareRev clinician and facility applications
+    and the partner integrations CareRev advertises on its partners page — importing
+    and posting open shifts from a facility''s VMS, scheduling and HR systems such
+    as UKG Dimensions. It is not a public, self-serve API: there is no developer portal,
+    no published reference, no OpenAPI/Swagger/GraphQL/AsyncAPI contract, no sandbox
+    and no public credential issuance. Access is arranged through a CareRev partnership
+    or customer implementation. Recorded here as an observed, evidenced private API
+    surface — nothing about its operations, parameters or auth model is asserted.'
+  humanURL: https://www.carerev.com/partners
+  baseURL: https://api.carerev.com
+  tags:
+  - Workforce Management
+  - Staffing
+  - Scheduling
+  - Healthcare
+  x-access: private
+  x-contract: none-published
+  x-evidence:
+    fetched: '2026-08-02'
+    url: https://api.carerev.com/
+    http_status: 204
+    note: 'Root returns HTTP 204 from server: istio-envoy with HSTS, CSP default-src
+      ''none'', X-Runtime and X-Request-Id headers. All spec-discovery paths (/openapi.json,
+      /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs, /docs, /redoc, /graphql,
+      /.well-known/*) returned 404. app.carerev.com answers HTTP 200 with an HTML SPA
+      shell for every path and is a catch-all false positive, not a spec host.'
+  properties:
+  - type: Partners
+    url: https://www.carerev.com/partners
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +77,45 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://www.carerev.com/
+- type: About
+  url: https://www.carerev.com/company
+- type: HowItWorks
+  url: https://www.carerev.com/how-it-works
+- type: Support
+  url: https://www.carerev.com/support
+- type: FAQ
+  url: https://www.carerev.com/professionals/faq
+- type: Blog
+  url: https://www.carerev.com/blog
+- type: News
+  url: https://www.carerev.com/news
+- type: GitHubOrganization
+  url: https://github.com/CareRevolutions
+- type: SignUp
+  url: https://app.carerev.com/new-account
+- type: TermsOfService
+  url: https://www.carerev.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.carerev.com/privacy
+- type: Careers
+  url: https://www.carerev.com/carerev-careers
+- type: StatusPage
+  url: https://status.carerev.com
+- type: Lifecycle
+  url: lifecycle/carerev-lifecycle.yml
+- type: Compliance
+  url: https://www.carerev.com/blog/the-joint-commission-and-carerev-partners-in-healthcare-excellence
+- type: Conformance
+  url: conformance/carerev-conformance.yml
+- type: DomainSecurity
+  url: security/carerev-domain-security.yml
+- type: LLMsTxt
+  url: llms/carerev-llms.txt
+- type: Forge
   url: https://forgeglobal.com/carerev_stock/
+x-enrichment:
+  date: '2026-08-02'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1

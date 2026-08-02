@@ -1,0 +1,68 @@
+generated: '2026-08-02'
+method: searched
+source: https://www.carerev.com/blog/the-joint-commission-and-carerev-partners-in-healthcare-excellence
+scope: 'Industry certifications and cross-cutting API standards. CareRev publishes
+  no machine-readable API contract, so every API-technical standard below is recorded
+  as unknown rather than false — there is no artifact from which conformance could
+  be derived, and absence of evidence is not asserted as non-conformance.'
+certifications:
+- id: joint-commission-hcss
+  name: The Joint Commission — Health Care Staffing Services (HCSS) Certification
+  conforms: true
+  issuer: The Joint Commission
+  evidence: 'CareRev displays the Joint Commission Gold Seal of Approval on carerev.com
+    and published a partnership post describing its HCSS certification. HCSS-certified
+    firms are required to report three standardized performance measures.'
+  url: https://www.carerev.com/blog/the-joint-commission-and-carerev-partners-in-healthcare-excellence
+  program_url: https://www.jointcommission.org/en-us/certification/health-care-staffing
+standards:
+- id: soc2
+  conforms: unknown
+  evidence: No SOC 2 report, trust center or compliance page found on any CareRev host
+    (trust.carerev.com and security.carerev.com do not resolve; /security, /trust and
+    /compliance return 404).
+- id: hipaa
+  conforms: unknown
+  evidence: CareRev operates in a US healthcare staffing context and its privacy policy
+    describes reasonable security measures and encrypted payment transactions, but
+    makes no HIPAA covered-entity or business-associate claim. Not asserted.
+- id: iso-27001
+  conforms: unknown
+  evidence: No published certification found.
+- id: hitrust
+  conforms: unknown
+  evidence: No published certification found.
+- id: oauth2
+  conforms: unknown
+  evidence: No public OAuth documentation and no /.well-known/oauth-authorization-server
+    on any host (404).
+- id: openid-connect
+  conforms: unknown
+  evidence: No /.well-known/openid-configuration on any host (404).
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI or Swagger document served from any CareRev host; all discovery
+    paths return 404. See well-known/carerev-well-known.yml contract_discovery.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming or webhook surface is publicly documented.
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: API surface is auth-gated with no public error reference.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on carerev.com, www.carerev.com
+    and api.carerev.com.
+- id: rfc8615-well-known
+  conforms: false
+  evidence: No /.well-known/ discovery documents served on any host.
+- id: a2a
+  conforms: false
+  evidence: No agent card at /.well-known/agent-card.json or /.well-known/agent.json
+    on any host.
+privacy_regimes:
+- id: ccpa-cpra
+  conforms: true
+  evidence: CareRev publishes a California "Notice at Collection" alongside its privacy
+    policy.
+  url: https://www.carerev.com/notice-at-collection
