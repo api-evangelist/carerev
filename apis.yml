@@ -16,6 +16,17 @@ description: 'CareRev is a healthcare workforce management and on-demand labor m
   via the UKG Connect Technology Partner Program) is delivered through private, partner-scoped
   API connections; CareRev publishes no public developer portal, API documentation
   or machine-readable API contract as of this profiling pass.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/5babc11099f97ef511cf24a6/62320df8e01070ecfbd91b6a_CR-logo-full-color_RGB.svg
 url: https://raw.githubusercontent.com/api-evangelist/carerev/refs/heads/main/apis.yml
 x-type: company
