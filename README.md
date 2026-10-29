@@ -64,18 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-CareRev is a healthcare workforce management and on-demand labor marketplace that connects hospitals and health systems directly with local, credentialed clinical professionals — RNs, LPN/LVNs, CNAs, surgical and ER techs, medical assistants, respiratory therapists, phlebotomists and mental health techs — without a traditional staffing agency in the middle. Facilities post open shifts from their existing scheduling and HR systems and vetted clinicians browse, claim and self-schedule them in the CareRev app. Products span the CareRev Marketplace, IRP+ (internal resource pool) and Smart Rates. CareRev is certified by The Joint Commission under its Health Care Staffing Services program and serves 650+ US facilities.
+CareRev is a healthcare workforce management and on-demand labor marketplace that connects hospitals and health systems directly with local, credentialed clinical professionals — registered nurses, LPN/LVNs, CNAs, surgical and ER techs, medical assistants, respiratory therapists, phlebotomists and mental health techs — without a traditional staffing agency in the middle. Facilities post open shifts from their existing scheduling and HR systems and vetted clinicians browse, claim and self-schedule them in the CareRev mobile app, while CareRev handles credential verification, compliance and payment. The product line spans the CareRev Marketplace (external on-demand talent), IRP+ (internal resource pool control and float-pool visibility for a health system's own staff) and Smart Rates (dynamic rate modeling to control labor spend). CareRev is certified by The Joint Commission under its Health Care Staffing Services program and serves more than 650 facilities across the United States. Integration with a facility's VMS, scheduling and workforce-management stack (including UKG Dimensions via the UKG Connect Technology Partner Program) is delivered through private, partner-scoped API connections; CareRev publishes no public developer portal, API documentation or machine-readable API contract as of this profiling pass.
 
-## API status
+**Areas:** Company · Healthcare · Health Systems · Workforce Management · Staffing · Nursing · Marketplace · Scheduling · Human Resources · Labor Marketplace
 
-CareRev publishes **no public API program** — no developer portal, no API reference, and no machine-readable contract of any kind (no OpenAPI/Swagger, GraphQL, AsyncAPI, MCP server or A2A agent card). `api.carerev.com` is a real, live, TLS-enforced API gateway serving the CareRev applications and CareRev's partner integrations (VMS, scheduling and HR systems, including UKG Dimensions via the UKG Connect Technology Partner Program), but it is auth-gated and undocumented. Access is arranged through a CareRev partnership or customer implementation.
+## CareRev on APIs.io
 
-Contract discovery was run against every CareRev host; results are recorded in `well-known/carerev-well-known.yml`.
+Everything profiled for CareRev is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/carerev/](https://apis.io/providers/carerev/)** — or go straight to one of the APIs or properties below.
 
-## Links
+### APIs (1)
 
-- Website: https://www.carerev.com/
-- Partners / integrations: https://www.carerev.com/partners
-- Status: https://status.carerev.com
-- GitHub: https://github.com/CareRevolutions
-- Forge (secondary market): https://forgeglobal.com/carerev_stock/
+- [CareRev Platform API](https://apis.io/apis/carerev/platform/) — The private application and partner-integration API behind the CareRev platform. api.carerev.com is a live, TLS-terminated API gateway (Istio/Envoy fronting…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Carerev Domain Security](https://apis.io/security/carerev/carerev-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.carerev.com/)
+- [Sign up](https://app.carerev.com/new-account)
+- [Support](https://www.carerev.com/support)
+- [Blog](https://www.carerev.com/blog)
+- [Compliance](https://www.carerev.com/blog/the-joint-commission-and-carerev-partners-in-healthcare-excellence)
+- [Terms of service](https://www.carerev.com/terms-of-use)
+- [Privacy policy](https://www.carerev.com/privacy)
+- [GitHub](https://github.com/CareRevolutions)
+- [Status](https://status.carerev.com)
+
+## API Evangelist rating
+
+**Kin Score 17.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 74.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 28.9 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 18.8** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/carerev/](https://apis.io/providers/carerev/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CareRev: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/carerev/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
